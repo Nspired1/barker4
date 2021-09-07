@@ -58,8 +58,9 @@ router.post(
         }
       );
     } catch (err) {
+      console.log("This is the register route");
       console.error(err.message);
-      res.status(500).send("Server Error.");
+      res.status(500).send(err.message);
     }
   }
 );
