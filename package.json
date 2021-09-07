@@ -4,7 +4,12 @@
   "description": "A Twitter clone using dogs instead of birds",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "server": "nodemon server.js",
+    "client": "npm start --prefix client",
+    "clientinstall": "npm install --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "repository": {
     "type": "git",
@@ -35,5 +40,6 @@
     "morgan": "^1.10.0",
     "nodemon": "^2.0.12",
     "prettier": "^2.3.2"
-  }
+  },
+  "proxy":"http://localhost:5000"
 }
