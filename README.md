@@ -7,12 +7,12 @@
 ## :page_facing_up: Table of Contents
 
 - [:zap: Barker](#zap-Barker)
-  _[:page_facing_up: Table of Contents](#page_facing_up-table-of-contents)
-  _[:books: General Info](#books-general-info)
-  _[:signal_strength: Technologies](#signal_strength_technologies)
-  _[:cool: Features](#cool-features)
-  _[:clap: Inspiration](#clap-inspiration)
-  _[:envelope: Contact](#envelope-contact)
+  - [:page_facing_up: Table of Contents](#page_facing_up-table-of-contents)
+  - [:books: General Info](#books-general-info)
+  - [:signal_strength: Technologies](#signal_strength_technologies)
+  - [:cool: Features](#cool-features)
+  - [:clap: Inspiration](#clap-inspiration)
+  - [:envelope: Contact](#envelope-contact)
 
 ## :books: General Info
 
@@ -45,4 +45,4 @@
 
 ## :envelope: Contact
 
-- repo created by Don Spire [Nspired01](https://github.com/Nspired1/barker4), email: don.spire1@gmail.com
+- repo created by Don Spire [Nspired1](https://github.com/Nspired1/barker4), email: don.spire1@gmail.com
