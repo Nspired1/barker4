@@ -11,6 +11,7 @@
   - [:books: General Info](#books-general-info)
   - [:microscope: Deep Dive](#microscope-deep-dive)
   - [:computer: Technologies](#signal_strength_technologies)
+  - [:floppy_disk: Setup](#floppy_disk-setup)
   - [:sunglasses: Features](#cool-features)
   - [:clap: Inspiration](#clap-inspiration)
   - [:envelope: Contact](#envelope-contact)
@@ -30,22 +31,31 @@
 - [Node.js ](https://nodejs.org/en/)
 - [Express server](https://expressjs.com/)
 - [MongoDB Atlas](https://www.mongodb.com/cloud/atlas) for cloud hosted database
+- [Cloudinary](https://cloudinary.com/)
 - [React UI](https://reactjs.org/) for frontend user interface
 - [JSON Web Tokens](https://www.npmjs.com/package/jsonwebtoken) for authentication
 - [Bcryptjs](https://www.npmjs.com/package/bcryptjs) for hashing
 - [Express Validator](https://www.npmjs.com/package/express-validator) another layer of validation
 
+## :floppy_disk: Setup
+
+- Normally, the setup would be to clone this repo, change directory into it, then type `npm install`, however because of the environment variables for Mongo Atlas, JWT secret, etc, etc,. and the associated setup with those services the easiest method is click on the link to the Heroku site
+
 ## :sunglasses: Features
 
-- User login and logout, user authorization: only the creator of a message ('bark' or 'tweet') can delete their own, messages are displayed by time in ascending order (most recent first).
+- User login and logout
+- Home page/Message Timeline is a protected route using a Higher Order Component (HOC)
+- create & delete messages
+- user authorization: only the creator of a message ('bark' or 'tweet') can delete their message
+- messages are displayed by time in ascending order (most recent first).
 
 ## :clap: Inspiration
 
-- The inspiration for this app was getting practice using React hooks, using context to manage app state, specifically with user login, authorization, and logout; comparing hooks to Redux, and Twitter.
+- The inspiration for this app was Twitter and getting practice with React hooks, using context to manage app state, specifically with user login, authorization, and logout; and comparing hooks to Redux.
 
-* [Frontend Masters Complete Intro to React V6: hooks, effects, contexts, etc](https://frontendmasters.com/courses/complete-react-v6/)
-* [Dan Abramov on Fundamentals of Redux](https://egghead.io/courses/fundamentals-of-redux-course-from-dan-abramov-bd5cc867)
 * [Twitter](https://twitter.com/)
+* [Frontend Masters: Complete Intro to React V6: hooks, effects, contexts, etc](https://frontendmasters.com/courses/complete-react-v6/)
+* [Dan Abramov: Fundamentals of Redux](https://egghead.io/courses/fundamentals-of-redux-course-from-dan-abramov-bd5cc867)
 
 ## :envelope: Contact
 
