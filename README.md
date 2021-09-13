@@ -2,7 +2,7 @@
 
 ## :zap: Twitter clone using dogs
 
-- Simple full-stack app that shows a list, or an array, of messages ('barks' or 'tweets') from the React client and processed on the backend Express server. Messages are saved in a hosted Mongodb database, MongoDB Atlas.
+- Simple full-stack app that shows a list of messages ('barks' or 'tweets') from the React client and processed on the Express server. Messages are saved in a hosted Mongodb database, MongoDB Atlas.
 
 ## :page_facing_up: Table of Contents
 
@@ -10,7 +10,7 @@
   - [:page_facing_up: Table of Contents](#page_facing_up-table-of-contents)
   - [:books: General Info](#books-general-info)
   - [:microscope: Deep Dive](#microscope-deep-dive)
-  - [:computer: Technologies](#signal_strength_technologies)
+  - [:computer: Technologies](#computer_technologies)
   - [:floppy_disk: Setup](#floppy_disk-setup)
   - [:sunglasses: Features](#cool-features)
   - [:clap: Inspiration](#clap-inspiration)
@@ -18,11 +18,13 @@
 
 ## :books: General Info
 
-- A simple Twitter clone using React for the frontend client and Express node.js server for the backend with MongoDB Atlas as the cloud hosted database. Wanted to better understand React hooks and using hooks for authentication with JSON Web Tokens (JWTs), so checked a few tutorials and built a Twitter clone.
+- A simple Twitter clone using React for the frontend client, Express node.js for the backend server, and using MongoDB Atlas as the cloud hosted database. This was built to better understand React hooks and how to use hooks for authentication/authorization across the application.
+
+- React is a separate frontend server, which is different than a view engine like EJS, PUG, or JADE. Using a view engine with Passport simplifies user authentication. However, I wanted to see how to pass the "app state" of an authenticated user across the application to different pages. The app was built by checking a few tutorials, MDN Docs, and googling Stackoverflow answers.
 
 ## :microscope: Deep Dive
 
-- App state management is using the React Context API and the useContext hook. Context was used instead of Redux because, as per Dan Abramov, the Context API is much improved, and unless the app needs to manage a large number of asynchronous resources Context works well. Context is not as verbose as Redux, however there are some Redux patterns (reducers, actions, types) that are used with Context to handle user login and logout as well as error messages and alerts.
+- App state is managed using the React Context API and the useContext hook. Context is used instead of Redux because, as in the words of Dan Abramov, the Context API is much improved, and unless the app needs to manage a large number of asynchronous resources, Context works well. Context is not as verbose as Redux, however there are some Redux patterns (reducers, actions, types) that are used with Context to handle user login and logout as well as error messages and alerts.
 - The other question answered was how to best manage the flow of data on the frontend (component vs app state) and the flow of data between the frontend and backend. The answer was only as much as necessary and when needed.
   A simple example was when to send the username and profile image url. The user enters the username when they edit their profile (in an effort to make signup fast and easy), but when is that sent to the frontend? For this app, the server attaches that data (or populates using MongoDB methods) on to the message and sends it to the frontend. The server doesn't send the image, but the URL for that profile image and the frontend requests the image from Cloudinary.
 
