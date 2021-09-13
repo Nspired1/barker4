@@ -6,6 +6,9 @@ const UserSchema = mongoose.Schema({
     type: String,
     required: true,
   },
+  username: {
+    type: String,
+  },
   email: {
     type: String,
     unique: true,
@@ -14,6 +17,9 @@ const UserSchema = mongoose.Schema({
   password: {
     type: String,
     required: true,
+  },
+  profileImageUrl: {
+    type: String,
   },
   messages: [
     {
