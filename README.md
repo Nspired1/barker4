@@ -10,7 +10,7 @@
   - [:page_facing_up: Table of Contents](#page_facing_up-table-of-contents)
   - [:books: General Info](#books-general-info)
   - [:microscope: Deep Dive](#microscope-deep-dive)
-  - [:computer: Technologies](#computer_technologies)
+  - [:computer: Technologies](#computer-technologies)
   - [:floppy_disk: Setup](#floppy_disk-setup)
   - [:sunglasses: Features](#cool-features)
   - [:clap: Inspiration](#clap-inspiration)
