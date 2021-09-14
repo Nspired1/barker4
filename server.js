@@ -27,6 +27,9 @@ app.use("/api/users", require("./routes/users"));
 app.use("/api/auth", require("./routes/auth"));
 app.use("/api/messages", require("./routes/messages"));
 
+// to run server at the command line type: "nodemon" or "node server.js" or "npm start"
+// to run frontend client at the prompt type: "npm run client"
+// to run both server and frontend client at prompt type "npm run dev"
 app.listen(PORT, () =>
   console.log(`App listening intently on PORT: ${PORT} and IP: ${IP}`)
 );

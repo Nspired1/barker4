@@ -51,8 +51,16 @@ router.post(
       });
 
       const message = await newMessage.save();
+      const foundMessage = await Message.findById(message._id).populate(
+        "user",
+        {
+          name: true,
+          username: true,
+          profileImageUrl: true,
+        }
+      );
 
-      res.json(message);
+      res.json(foundMessage);
     } catch (err) {
       console.error(err.message);
       res.status(500).send("Server Error.");

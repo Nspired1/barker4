@@ -40,8 +40,7 @@ router.post(
     const { email, password } = req.body;
     try {
       let user = await User.findOne({ email });
-      console.log("This is in auth route in SERVER");
-      console.log(user);
+
       if (!user) {
         return res.status(400).json({ msg: "Invalid Credentials" });
       }

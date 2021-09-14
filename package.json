@@ -40,6 +40,6 @@
     "morgan": "^1.10.0",
     "nodemon": "^2.0.12",
     "prettier": "^2.3.2"
-  },
-  "proxy":"http://localhost:5000"
+  }
+ 
 }
