@@ -33,7 +33,6 @@
 - [Node.js ](https://nodejs.org/en/)
 - [Express server](https://expressjs.com/)
 - [MongoDB Atlas](https://www.mongodb.com/cloud/atlas) for cloud hosted database
-- [Cloudinary](https://cloudinary.com/)
 - [React UI](https://reactjs.org/) for frontend user interface
 - [JSON Web Tokens](https://www.npmjs.com/package/jsonwebtoken) for authentication
 - [Bcryptjs](https://www.npmjs.com/package/bcryptjs) for hashing
@@ -41,7 +40,7 @@
 
 ## :floppy_disk: Setup
 
-- Normally, the setup would be to clone this repo, change directory into it, then type `npm install`, however because of the environment variables for Mongo Atlas, JWT secret, etc, etc,. and the associated setup with those services the easiest method is click on the link to the Heroku site
+- Normally, the setup would be to clone this repo, change directory into it, then type `npm install` and `npm client-install`, however because of the environment variables for Mongo Atlas, JWT secret, etc, etc,. and the associated setup with those services the easiest method is click on the link to the Heroku site
 
 ## :sunglasses: Features
 
@@ -61,4 +60,4 @@
 
 ## :envelope: Contact
 
-- repo created by Don Spire [Nspired1](https://github.com/Nspired1/barker4), email: don.spire1@gmail.com
+- repo created by Don Spire [Nspired1](https://github.com/Nspired1), email: don.spire1@gmail.com
