@@ -10,6 +10,8 @@ const Messages = () => {
     getMessages();
   }, []);
 
+  console.log(messages);
+
   return (
     <Fragment>
       {messages.map((message) => (

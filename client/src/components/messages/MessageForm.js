@@ -36,6 +36,7 @@ const MessageForm = () => {
           placeholder="write something..."
           onChange={onChange}
         />
+
         <div>
           <button type="submit" className="btn btn-primary btn-block">
             Submit

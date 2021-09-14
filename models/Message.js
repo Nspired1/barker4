@@ -8,7 +8,8 @@ const MessageSchema = new mongoose.Schema(
       required: true,
       maxLength: 280,
     },
-    author: {
+    //note change author to user for testing features
+    user: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "User",
     },

@@ -50,8 +50,6 @@ const MessageState = (props) => {
 
   // delete message
   const deleteMessage = async (id) => {
-    console.log("This is DELETE in MessageState ");
-    console.log(id);
     try {
       await axios.delete(`/api/messages/${id}`);
       dispatch({ type: DELETE_MESSAGE, payload: id });
