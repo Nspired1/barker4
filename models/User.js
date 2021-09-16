@@ -18,8 +18,11 @@ const UserSchema = mongoose.Schema({
     type: String,
     required: true,
   },
-  profileImageUrl: {
-    type: String,
+  profileImage: {
+    type: {
+      url: String,
+      filename: String,
+    },
   },
   messages: [
     {

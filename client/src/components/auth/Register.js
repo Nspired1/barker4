@@ -1,10 +1,14 @@
 import React, { useState, useContext, useEffect } from "react";
 import AlertContext from "../../context/alert/alertContext";
 import AuthContext from "../../context/auth/authContext";
+//import FileUpload from "./FileUpload";
+import axios from "axios";
 
 const Register = (props) => {
   const alertContext = useContext(AlertContext);
   const authContext = useContext(AuthContext);
+  // const [profileImage, setProfileImage] = useState("");
+
   const [user, setUser] = useState({
     name: "",
     username: "",
@@ -27,18 +31,29 @@ const Register = (props) => {
     // elsint-disable-next-line
   }, [error, isAuthenticated, props.history]);
 
+  //const onChange = (e) => setUser({ ...user, [e.target.name]: e.target.value });
   const onChange = (e) => setUser({ ...user, [e.target.name]: e.target.value });
 
   const onSubmit = (e) => {
     e.preventDefault();
+    console.log("This is Register component name & profileImage");
+    // console.log(profileImage);
+    console.log("This is onSubmit event");
+    console.log(e);
     if (name === "" || email === "" || password === "") {
       setAlert("Please enter all required fields", "danger");
     } else {
+      const formData = new FormData();
+      // formData.append("profileImage", profileImage);
+      console.log("This is formData in onSubmit of Register Component");
+      console.log(formData);
+
       register({
         name,
-        username,
         email,
+        username,
         password,
+        // formData,
       });
     }
 
@@ -102,6 +117,19 @@ const Register = (props) => {
             onChange={onChange}
           />
         </div>
+        {/* <div className="form-group mb-3">
+          <label htmlFor="profileImage" className="form-label">
+            Profile Image
+          </label>
+          <input
+            type="file"
+            name="profileImage"
+            className="form-control"
+            id="profileImage"
+            value={profileImage}
+            onChange={(e) => setProfileImage(e.target.files[0])}
+          />
+        </div> */}
         <button
           type="submit"
           value="register"

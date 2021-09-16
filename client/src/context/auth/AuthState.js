@@ -39,9 +39,14 @@ const AuthState = (props) => {
 
   // register user
   const register = async (formData) => {
+    console.log("This is formData in Auth State");
+    console.log(formData);
+    // formData.profileImage = formData.formData.profileImage;
+
     const config = {
       headers: {
-        "Content-Type": "application/json",
+        //"Content-Type": "application/json",
+        "Content-Type": "multipart/form-data",
       },
     };
     try {

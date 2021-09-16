@@ -5,6 +5,10 @@ const { check, validationResult } = require("express-validator");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
 
+const multer = require("multer");
+const { storage } = require("../cloudinary");
+const upload = multer({ dest: storage });
+
 // @route   POST api/users
 // @desc    register a user
 // @access  public
@@ -18,6 +22,7 @@ router.post(
       "Please enter a password with 6 or more characters"
     ).isLength({ min: 6 }),
   ],
+  upload.single("profileImage"),
   async (req, res) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
@@ -37,6 +42,11 @@ router.post(
         email,
         password,
       });
+      user.profileImage.url = req.file.path;
+      user.profileImage.url = req.file.filename;
+      console.log("This is the Users POST route for register");
+      console.log(user.profileImage);
+
       const salt = await bcrypt.genSalt(10);
       user.password = await bcrypt.hash(password, salt);
       await user.save();
