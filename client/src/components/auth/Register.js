@@ -1,6 +1,7 @@
 import React, { useState, useContext, useEffect } from "react";
 import AlertContext from "../../context/alert/alertContext";
 import AuthContext from "../../context/auth/authContext";
+import { Link } from "react-router-dom";
 
 const Register = (props) => {
   const alertContext = useContext(AlertContext);
@@ -18,7 +19,7 @@ const Register = (props) => {
 
   useEffect(() => {
     if (isAuthenticated) {
-      props.history.push("/");
+      props.history.push("/home");
     }
     if (error === "User already exists.") {
       setAlert(error, "danger");
@@ -110,6 +111,9 @@ const Register = (props) => {
           Register
         </button>
       </form>
+      <span>
+        Already have an account? Then <Link to="/login">Login</Link>
+      </span>
     </div>
   );
 };
