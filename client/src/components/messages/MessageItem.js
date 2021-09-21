@@ -18,12 +18,21 @@ const MessageItem = ({ message }) => {
 
   return (
     <Fragment>
-      <div className="card mb-3" style={{ maxWidth: 540 }}>
+      <div
+        className="card mb-3"
+        style={{ maxWidth: "540px", borderRadius: "25px" }}
+      >
         <div className="row g-0">
           <div className="col-md-4">
             <img
               src={DefaultProfileImage}
-              className="img-fluid rounded-start"
+              // className="img-fluid rounded-start"
+              style={{
+                borderRadius: "25px",
+                height: "150px",
+                width: "150px",
+                margin: "10px 20px 10px 20px",
+              }}
               alt={username}
             />
           </div>
@@ -44,16 +53,42 @@ const MessageItem = ({ message }) => {
                 </small>
               </p>
             </div>
-            <div className="mb-2 ">
-              <button
-                className="btn btn-outline-danger btn-small "
-                style={{ position: "relative", left: 20 }}
-                type="submit"
-                onClick={onDelete}
-              >
-                Delete
-              </button>
-            </div>
+            <span style={{ display: "flex", justifyContent: "flex-start" }}>
+              <div className="mb-2 ">
+                <button
+                  className="btn btn-outline-success btn-small "
+                  style={{ position: "relative", left: 10 }}
+                >
+                  Reply
+                </button>
+              </div>
+              <div className="mb-2 ">
+                <button
+                  className="btn btn-outline-primary btn-small "
+                  style={{ position: "relative", left: 20 }}
+                >
+                  ReBark
+                </button>
+              </div>
+              <div className="mb-2 ">
+                <button
+                  className="btn btn-outline-secondary btn-small "
+                  style={{ position: "relative", left: 30 }}
+                >
+                  Like
+                </button>
+              </div>
+              <div className="mb-2 ">
+                <button
+                  className="btn btn-outline-danger btn-small "
+                  style={{ position: "relative", left: 40 }}
+                  type="submit"
+                  onClick={onDelete}
+                >
+                  Delete
+                </button>
+              </div>
+            </span>
           </div>
         </div>
       </div>
