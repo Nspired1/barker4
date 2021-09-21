@@ -10,9 +10,18 @@ const Message = require("../models/Message");
 // @access  Private
 router.get("/", auth, async (req, res) => {
   try {
-    const messages = await Message.find({ user: req.user.id }).sort({
-      date: -1,
-    });
+    // for now find all messages
+    const messages = await Message.find({})
+      .populate("user", {
+        name: true,
+        username: true,
+        profileImageUrl: true,
+      })
+      .sort({
+        date: -1,
+      });
+    console.log("This is in messages routes in SERVER");
+    console.log(messages);
     res.json(messages);
   } catch (err) {
     console.error(err.message);
@@ -41,16 +50,18 @@ router.post(
       return res.status(400).json({ errors: errors.array() });
     }
     const { text } = req.body;
+    console.log("This is in POST route in messages at SERVER");
     console.log(text);
     console.log(req.user.id);
 
     try {
       const newMessage = new Message({
         text,
-        author: req.user.id,
+        user: req.user.id,
       });
 
       const message = await newMessage.save();
+
       const foundMessage = await Message.findById(message._id).populate(
         "user",
         {
@@ -60,7 +71,12 @@ router.post(
         }
       );
 
-      res.json(foundMessage);
+      const updatedMessage = await foundMessage.save();
+      console.log("This is foundMessage");
+      console.log(updatedMessage);
+      res.json(updatedMessage);
+
+      // res.json(message);
     } catch (err) {
       console.error(err.message);
       res.status(500).send("Server Error.");
@@ -80,13 +96,16 @@ router.put("/:id", (req, res) => {
 // @access  Private
 
 router.delete("/:id", auth, async (req, res) => {
-  // auth provides the user and user.id
+  // auth checks the user
+  // user id is attached when a new Message is created
   try {
-    const foundMessage = await Message.findById(req.params.id);
-    if (!foundMessage)
-      return res.status(404).json({ msg: "Message not found." });
+    const message = await Message.findById(req.params.id);
+    if (!message) return res.status(404).json({ msg: "Message not found." });
     // ensure user owns message
-    if (foundMessage.author.toString() !== req.user.id) {
+    console.log("This is inside messages routes in server");
+    console.log(message);
+    console.log(message.user);
+    if (message.user.toString() !== req.user.id) {
       return res.status(401).json({ msg: "That is not authorized" });
     }
     await Message.findByIdAndRemove(req.params.id);

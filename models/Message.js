@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const User = require("./User");
+//const User = require("./User");
 
 const MessageSchema = new mongoose.Schema(
   {
@@ -11,7 +11,7 @@ const MessageSchema = new mongoose.Schema(
     //note change author to user for testing features
     user: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "User",
+      ref: "user",
     },
     date: {
       type: Date,
@@ -24,6 +24,7 @@ const MessageSchema = new mongoose.Schema(
   }
 );
 
+// remove reference to users when messages are deleted
 MessageSchema.pre("remove", async function (next) {
   try {
     let user = await User.findById(this.user);
