@@ -13,6 +13,7 @@ import Login from "./components/auth/Login";
 import Alerts from "./components/layout/Alerts";
 import setAuthToken from "./utils/setAuthToken";
 import WithAuth from "./components/routing/WithAuth";
+import ImageUpload from "./components/auth/ImageUpload";
 
 if (localStorage.token) {
   setAuthToken(localStorage.token);
@@ -33,6 +34,7 @@ const App = () => {
                 <Route exact path="/about" component={About} />
                 <Route exact path="/register" component={Register} />
                 <Route exact path="/login" component={Login} />
+                <Route exact path="/upload" component={ImageUpload} />
               </Switch>
             </div>
           </Router>
