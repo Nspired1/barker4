@@ -6,12 +6,16 @@ import { Link } from "react-router-dom";
 const Register = (props) => {
   const alertContext = useContext(AlertContext);
   const authContext = useContext(AuthContext);
+
   const [user, setUser] = useState({
     name: "",
     username: "",
     email: "",
     password: "",
   });
+
+  // for image upload
+  // const [file, setFile] = useState("");
 
   const { setAlert } = alertContext;
   const { register, error, clearErrors, isAuthenticated } = authContext;
@@ -35,6 +39,10 @@ const Register = (props) => {
     if (name === "" || email === "" || password === "") {
       setAlert("Please enter all required fields", "danger");
     } else {
+      // const formData = new FormData();
+      // formData.append("file", file);
+      // formData.append("user", user)
+      // register(formData);
       register({
         name,
         username,
@@ -49,6 +57,7 @@ const Register = (props) => {
   return (
     <div className="form-container">
       <h1>Account Register</h1>
+
       <form onSubmit={onSubmit}>
         <div className="form-group mb-3">
           <label htmlFor="name" className="form-label">
