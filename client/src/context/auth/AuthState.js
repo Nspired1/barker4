@@ -39,13 +39,19 @@ const AuthState = (props) => {
 
   // register user
   const register = async (formData) => {
-    const config = {
-      headers: {
-        "Content-Type": "application/json",
-      },
-    };
+    // const config = {
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //   },
+    // };
     try {
-      const res = await axios.post("api/users", formData, config);
+      // const res = await axios.post("api/users", formData, config);
+      const res = await axios({
+        method: "POST",
+        url: "api/users",
+        data: formData,
+      });
+
       dispatch({
         type: REGISTER_SUCCESS,
         payload: res.data,
