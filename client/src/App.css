@@ -1,38 +1,69 @@
-.App {
-  text-align: center;
+body {
+  background-color: rgb(255, 247, 230);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+a {
+  text-decoration: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+ul {
+  list-style: none;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.landing-main {
+  background-image: url("./images/marliese-streefland-2l0CWTpcChI-unsplash.jpg");
+  background-position: center center;
+  background-size: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  text-align: center;
+  padding: 1rem;
+  color: #fff;
+  text-shadow: 0 0 8px #66757f;
 }
 
-.App-link {
-  color: #61dafb;
+/* .container {
+  max-width: 1100px;
+  margin: auto;
+  overflow: hidden;
+  padding: 0 2 rem;
+} */
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  z-index: 1;
+  opacity: 0.9;
+  border-bottom: solid 1px rgb(255, 170, 0);
+  background-color: rgb(255, 230, 179);
+  color: rgb(51, 34, 0);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.navbar h1 {
+  margin-bottom: 0.6 rem;
+}
+
+.navbar ul {
+  text-align: right;
+  justify-content: right;
+}
+
+.navbar-toggler {
+  border-color: rgb(255, 26, 26);
+  border: 1px solid rgb(255, 26, 26);
+}
+
+.navbar-toggler-icon {
+  border-color: rgb(255, 26, 26);
+  border: 1px solid rgb(255, 26, 26);
 }

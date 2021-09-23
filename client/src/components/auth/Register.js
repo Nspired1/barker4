@@ -1,13 +1,11 @@
 import React, { useState, useContext, useEffect } from "react";
 import AlertContext from "../../context/alert/alertContext";
 import AuthContext from "../../context/auth/authContext";
-//import FileUpload from "./FileUpload";
-import axios from "axios";
+import { Link } from "react-router-dom";
 
 const Register = (props) => {
   const alertContext = useContext(AlertContext);
   const authContext = useContext(AuthContext);
-  // const [profileImage, setProfileImage] = useState("");
 
   const [user, setUser] = useState({
     name: "",
@@ -16,13 +14,16 @@ const Register = (props) => {
     password: "",
   });
 
+  // for image upload
+  // const [file, setFile] = useState("");
+
   const { setAlert } = alertContext;
   const { register, error, clearErrors, isAuthenticated } = authContext;
   const { name, email, username, password } = user;
 
   useEffect(() => {
     if (isAuthenticated) {
-      props.history.push("/");
+      props.history.push("/home");
     }
     if (error === "User already exists.") {
       setAlert(error, "danger");
@@ -43,11 +44,14 @@ const Register = (props) => {
     if (name === "" || email === "" || password === "") {
       setAlert("Please enter all required fields", "danger");
     } else {
-      const formData = new FormData();
-      // formData.append("profileImage", profileImage);
-      console.log("This is formData in onSubmit of Register Component");
-      console.log(formData);
-
+      // const formData = new FormData();
+      // formData.append("file", file);
+      // formData.append("user", user)
+      // FormData.append("name", name);
+      // FormData.append("username", username);
+      // FormData.append("email", email);
+      // FormData.append("password", password);
+      // register(formData);
       register({
         name,
         email,
@@ -63,6 +67,7 @@ const Register = (props) => {
   return (
     <div className="form-container">
       <h1>Account Register</h1>
+
       <form onSubmit={onSubmit}>
         <div className="form-group mb-3">
           <label htmlFor="name" className="form-label">
@@ -138,6 +143,9 @@ const Register = (props) => {
           Register
         </button>
       </form>
+      <span>
+        Already have an account? Then <Link to="/login">Login</Link>
+      </span>
     </div>
   );
 };

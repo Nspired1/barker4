@@ -39,18 +39,19 @@ const AuthState = (props) => {
 
   // register user
   const register = async (formData) => {
-    console.log("This is formData in Auth State");
-    console.log(formData);
-    // formData.profileImage = formData.formData.profileImage;
-
-    const config = {
-      headers: {
-        //"Content-Type": "application/json",
-        "Content-Type": "multipart/form-data",
-      },
-    };
+    // const config = {
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //   },
+    // };
     try {
-      const res = await axios.post("api/users", formData, config);
+      // const res = await axios.post("api/users", formData, config);
+      const res = await axios({
+        method: "POST",
+        url: "api/users",
+        data: formData,
+      });
+
       dispatch({
         type: REGISTER_SUCCESS,
         payload: res.data,

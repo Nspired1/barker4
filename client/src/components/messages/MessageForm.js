@@ -23,20 +23,27 @@ const MessageForm = () => {
   };
 
   return (
-    <div className="card bg-light">
-      <form onSubmit={onSubmit}>
-        <h2 className="text-primary">Write Message</h2>
-
-        <textarea
-          id="text"
-          name="text"
-          row="5"
-          cols="40"
-          value={text}
-          placeholder="write something..."
-          onChange={onChange}
-        />
-
+    <div className="card bg-light mb-3 mt-3" style={{ borderRadius: "25px" }}>
+      <form onSubmit={onSubmit} className="mb-3 mx-3">
+        <h2 className="text-primary">Bark Away...</h2>
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+          }}
+        >
+          <textarea
+            id="text"
+            name="text"
+            row="5"
+            cols="70"
+            value={text}
+            placeholder="write something..."
+            onChange={onChange}
+            className="mb-2"
+            style={{ borderRadius: "10px" }}
+          />
+        </div>
         <div>
           <button type="submit" className="btn btn-primary btn-block">
             Submit
