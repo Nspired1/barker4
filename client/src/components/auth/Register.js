@@ -42,6 +42,10 @@ const Register = (props) => {
       // const formData = new FormData();
       // formData.append("file", file);
       // formData.append("user", user)
+      // FormData.append("name", name);
+      // FormData.append("username", username);
+      // FormData.append("email", email);
+      // FormData.append("password", password);
       // register(formData);
       register({
         name,
