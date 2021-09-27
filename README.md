@@ -9,6 +9,7 @@
 - [:zap: Barker](#zap-Barker)
   - [:page_facing_up: Table of Contents](#page_facing_up-table-of-contents)
   - [:books: General Info](#books-general-info)
+  - [:camera: Screenshots](#camera-screen-shots)
   - [:microscope: Deep Dive](#microscope-deep-dive)
   - [:computer: Technologies](#computer-technologies)
   - [:floppy_disk: Setup](#floppy_disk-setup)
@@ -22,6 +23,12 @@
 - A simple Twitter clone using React for the frontend client, Express node.js for the backend server, and using MongoDB Atlas as the cloud hosted database. This was built to better understand React hooks and how to use hooks for authentication/authorization across the application.
 
 - React is a separate frontend server, which is different than a view engine like EJS, PUG, or JADE. Using a view engine with Passport simplifies user authentication. However, I wanted to see how to pass the "app state" of an authenticated user across the application to different pages. The app was built by checking a few tutorials, MDN Docs, and googling Stackoverflow answers.
+
+## :camera: Screenshots
+
+![Screenshot](/screenshots/barkerScreenshot1.png)
+
+![Screenshot](/scrreenshots/bakerScreenshot2.png)
 
 ## :microscope: Deep Dive
 
