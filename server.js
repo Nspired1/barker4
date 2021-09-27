@@ -9,7 +9,7 @@ const PORT = process.env.PORT || 5000;
 const IP = process.env.IP;
 const path = require("path");
 
-const morgan = require("morgan");
+// const morgan = require("morgan");
 
 database.on("error", console.error.bind(console, "Connection ERROR:"));
 database.once("open", () => {
@@ -17,7 +17,7 @@ database.once("open", () => {
 });
 
 // http request logger, dev setting colorizes output logs
-app.use(morgan("dev"));
+// app.use(morgan("dev"));
 
 // enable bodyParser which is now part of express
 app.use(express.json({ extended: true }));
