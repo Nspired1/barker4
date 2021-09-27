@@ -22,14 +22,12 @@ router.post(
       "Please enter a password with 6 or more characters"
     ).isLength({ min: 6 }),
   ],
-  upload.single("profileImage"),
+
   async (req, res) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
       return res.status(400).json({ errors: errors.array() });
     }
-    console.log("This is req.body in USERS ROUTES");
-    console.log(req.body);
 
     const { name, email, username, password } = req.body;
     try {
@@ -44,10 +42,8 @@ router.post(
         email,
         password,
       });
-      user.profileImage.url = req.file.path;
-      user.profileImage.url = req.file.filename;
+
       console.log("This is the Users POST route for register");
-      console.log(user.profileImage);
 
       const salt = await bcrypt.genSalt(10);
       user.password = await bcrypt.hash(password, salt);
