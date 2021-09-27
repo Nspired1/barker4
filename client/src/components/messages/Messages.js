@@ -17,8 +17,6 @@ const Messages = () => {
       //clearErrors();
     }
   }, []);
-  console.log("This is Messages Component");
-  console.log(messages);
 
   return (
     <Fragment>

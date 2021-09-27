@@ -35,7 +35,6 @@ router.post(
   "/",
   [
     auth,
-
     [
       check("text", "Message is required.")
         .not()
