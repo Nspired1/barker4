@@ -36,6 +36,10 @@ app.use("/api/messages", require("./routes/messages"));
 //   );
 // }
 
+app.get("*", (req, res) =>
+  res.sendFile(path.resolve(__dirname, "client", "build", "index.html"))
+);
+
 // to run server at the command line type: "nodemon" or "node server.js" or "npm start"
 // to run frontend client at the prompt type: "npm run client"
 // to run both server and frontend client at prompt type "npm run dev"
