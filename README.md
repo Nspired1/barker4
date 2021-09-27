@@ -28,7 +28,7 @@
 
 ![Screenshot1](/screenshots/barkerScreenshot1.png)
 
-![Screenshot2](/screenshots/bakerScreenshot2.png)
+![Screenshot2](/screenshots/barkerScreenshot2.png)
 
 ## :microscope: Deep Dive
 
