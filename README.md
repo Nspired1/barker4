@@ -13,6 +13,7 @@
   - [:computer: Technologies](#computer-technologies)
   - [:floppy_disk: Setup](#floppy_disk-setup)
   - [:sunglasses: Features](#cool-features)
+  - [:clipboard: Pending Features] (#pending-features)
   - [:clap: Inspiration](#clap-inspiration)
   - [:envelope: Contact](#envelope-contact)
 
@@ -26,7 +27,6 @@
 
 - App state is managed using the React Context API and the useContext hook. Context is used instead of Redux because, as in the words of Dan Abramov, the Context API is much improved, and unless the app needs to manage a large number of asynchronous resources, Context works well. Context is not as verbose as Redux, however there are some Redux patterns (reducers, actions, types) that are used with Context to handle user login and logout as well as error messages and alerts.
 - The other question answered was how to best manage the flow of data on the frontend (component vs app state) and the flow of data between the frontend and backend. The answer was only as much as necessary and when needed.
-  A simple example was when to send the username and profile image url. The user enters the username when they edit their profile (in an effort to make signup fast and easy), but when is that sent to the frontend? For this app, the server attaches that data (or populates using MongoDB methods) on to the message and sends it to the frontend. The server doesn't send the image, but the URL for that profile image and the frontend requests the image from Cloudinary.
 
 ## :computer: Technologies
 
@@ -49,6 +49,14 @@
 - create & delete messages
 - user authorization: only the creator of a message ('bark' or 'tweet') can delete their message
 - messages are displayed by time in ascending order (most recent first).
+
+## :clipboard: Pending Features
+
+- Image upload for user profile image
+- Image upload for barks/tweets
+- UI refactor
+- Enable Reply, ReBark, and Likes
+- Threading for replies
 
 ## :clap: Inspiration
 
