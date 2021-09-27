@@ -27,18 +27,18 @@ app.use("/api/auth", require("./routes/auth"));
 app.use("/api/messages", require("./routes/messages"));
 
 // serve static assets in production
-// if (process.env.NODE_ENV === "production") {
-//   //set static folder (that react built)
-//   app.use(express.static("client/build"));
+if (process.env.NODE_ENV === "production") {
+  //set static folder (that react built)
+  app.use(express.static("client/build"));
 
-//   app.get("*", (req, res) =>
-//     res.sendFile(path.resolve(__dirname, "client", "build", "index.html"))
-//   );
-// }
+  app.get("*", (req, res) =>
+    res.sendFile(path.resolve(__dirname, "client", "build", "index.html"))
+  );
+}
 
-app.get("*", (req, res) =>
-  res.sendFile(path.resolve(__dirname, "client", "build", "index.html"))
-);
+// app.get("*", (req, res) =>
+//   res.sendFile(path.resolve(__dirname, "client", "build", "index.html"))
+// );
 
 // to run server at the command line type: "nodemon" or "node server.js" or "npm start"
 // to run frontend client at the prompt type: "npm run client"
