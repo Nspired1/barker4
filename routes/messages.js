@@ -20,8 +20,7 @@ router.get("/", auth, async (req, res) => {
       .sort({
         date: -1,
       });
-    console.log("This is in messages routes in SERVER");
-    console.log(messages);
+
     res.json(messages);
   } catch (err) {
     console.error(err.message);
@@ -72,8 +71,7 @@ router.post(
       );
 
       const updatedMessage = await foundMessage.save();
-      console.log("This is foundMessage");
-      console.log(updatedMessage);
+
       res.json(updatedMessage);
 
       // res.json(message);
@@ -102,9 +100,7 @@ router.delete("/:id", auth, async (req, res) => {
     const message = await Message.findById(req.params.id);
     if (!message) return res.status(404).json({ msg: "Message not found." });
     // ensure user owns message
-    console.log("This is inside messages routes in server");
-    console.log(message);
-    console.log(message.user);
+
     if (message.user.toString() !== req.user.id) {
       return res.status(401).json({ msg: "That is not authorized" });
     }
