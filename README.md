@@ -26,9 +26,9 @@
 
 ## :camera: Screenshots
 
-![Screenshot](/screenshots/barkerScreenshot1.png)
+![Screenshot1](/screenshots/barkerScreenshot1.png)
 
-![Screenshot](/screenshots/bakerScreenshot2.png)
+![Screenshot2](/screenshots/bakerScreenshot2.png)
 
 ## :microscope: Deep Dive
 
