@@ -2,6 +2,7 @@ import React, { useState, useContext, useEffect } from "react";
 import AlertContext from "../../context/alert/alertContext";
 import AuthContext from "../../context/auth/authContext";
 import { Link } from "react-router-dom";
+import ThumbImage from "./ThumbImage";
 
 const Register = (props) => {
   const alertContext = useContext(AlertContext);
@@ -15,7 +16,7 @@ const Register = (props) => {
   });
 
   // for image upload
-  // const [file, setFile] = useState("");
+  const [file, setFile] = useState("");
 
   const { setAlert } = alertContext;
   const { register, error, clearErrors, isAuthenticated } = authContext;
@@ -35,30 +36,31 @@ const Register = (props) => {
   //const onChange = (e) => setUser({ ...user, [e.target.name]: e.target.value });
   const onChange = (e) => setUser({ ...user, [e.target.name]: e.target.value });
 
+  const changeHandler = (e) => {
+    setFile(e.target.files[0]);
+  };
+
   const onSubmit = (e) => {
     e.preventDefault();
-    console.log("This is Register component name & profileImage");
-    // console.log(profileImage);
     console.log("This is onSubmit event");
-    console.log(e);
     if (name === "" || email === "" || password === "") {
       setAlert("Please enter all required fields", "danger");
     } else {
-      // const formData = new FormData();
-      // formData.append("file", file);
-      // formData.append("user", user)
-      // FormData.append("name", name);
-      // FormData.append("username", username);
-      // FormData.append("email", email);
-      // FormData.append("password", password);
-      // register(formData);
-      register({
-        name,
-        email,
-        username,
-        password,
-        // formData,
-      });
+      // appending input fields to formData
+      const formData = new FormData();
+      formData.append("profileImage", file);
+      formData.append("name", name);
+      formData.append("username", username);
+      formData.append("email", email);
+      formData.append("password", password);
+
+      register(formData);
+      // register({
+      //   name,
+      //   email,
+      //   username,
+      //   password,
+      // });
     }
 
     console.log("Register submit");
@@ -69,6 +71,19 @@ const Register = (props) => {
       <h1>Account Register</h1>
 
       <form onSubmit={onSubmit}>
+        <div className="form-group mb-3">
+          <div>{file && <ThumbImage image={file} />}</div>
+          <label htmlFor="profileImage" className="form-label">
+            Profile Image
+          </label>
+          <input
+            type="file"
+            name="profileImage"
+            className="form-control"
+            id="profileImage"
+            onChange={changeHandler}
+          />
+        </div>
         <div className="form-group mb-3">
           <label htmlFor="name" className="form-label">
             Name
@@ -122,19 +137,7 @@ const Register = (props) => {
             onChange={onChange}
           />
         </div>
-        {/* <div className="form-group mb-3">
-          <label htmlFor="profileImage" className="form-label">
-            Profile Image
-          </label>
-          <input
-            type="file"
-            name="profileImage"
-            className="form-control"
-            id="profileImage"
-            value={profileImage}
-            onChange={(e) => setProfileImage(e.target.files[0])}
-          />
-        </div> */}
+
         <button
           type="submit"
           value="register"
