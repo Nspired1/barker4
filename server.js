@@ -22,8 +22,6 @@ app.use(morgan("dev"));
 // enable bodyParser which is now part of express
 app.use(express.json({ extended: true }));
 
-app.get("/", (req, res) => res.json({ message: "Welcome to Barker4 API" }));
-
 app.use("/api/users", require("./routes/users"));
 app.use("/api/auth", require("./routes/auth"));
 app.use("/api/messages", require("./routes/messages"));
