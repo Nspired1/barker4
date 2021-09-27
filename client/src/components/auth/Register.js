@@ -14,9 +14,6 @@ const Register = (props) => {
     password: "",
   });
 
-  // for image upload
-  // const [file, setFile] = useState("");
-
   const { setAlert } = alertContext;
   const { register, error, clearErrors, isAuthenticated } = authContext;
   const { name, email, username, password } = user;
@@ -32,36 +29,24 @@ const Register = (props) => {
     // elsint-disable-next-line
   }, [error, isAuthenticated, props.history]);
 
-  //const onChange = (e) => setUser({ ...user, [e.target.name]: e.target.value });
   const onChange = (e) => setUser({ ...user, [e.target.name]: e.target.value });
 
   const onSubmit = (e) => {
     e.preventDefault();
     console.log("This is Register component name & profileImage");
-    // console.log(profileImage);
+
     console.log("This is onSubmit event");
     console.log(e);
     if (name === "" || email === "" || password === "") {
       setAlert("Please enter all required fields", "danger");
     } else {
-      // const formData = new FormData();
-      // formData.append("file", file);
-      // formData.append("user", user)
-      // FormData.append("name", name);
-      // FormData.append("username", username);
-      // FormData.append("email", email);
-      // FormData.append("password", password);
-      // register(formData);
       register({
         name,
         email,
         username,
         password,
-        // formData,
       });
     }
-
-    console.log("Register submit");
   };
 
   return (
@@ -122,19 +107,7 @@ const Register = (props) => {
             onChange={onChange}
           />
         </div>
-        {/* <div className="form-group mb-3">
-          <label htmlFor="profileImage" className="form-label">
-            Profile Image
-          </label>
-          <input
-            type="file"
-            name="profileImage"
-            className="form-control"
-            id="profileImage"
-            value={profileImage}
-            onChange={(e) => setProfileImage(e.target.files[0])}
-          />
-        </div> */}
+
         <button
           type="submit"
           value="register"
