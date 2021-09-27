@@ -13,7 +13,7 @@
   - [:computer: Technologies](#computer-technologies)
   - [:floppy_disk: Setup](#floppy_disk-setup)
   - [:sunglasses: Features](#cool-features)
-  - [:clipboard: Pending Features] (#pending-features)
+  - [:clipboard: Pending Features](#pending-features)
   - [:clap: Inspiration](#clap-inspiration)
   - [:envelope: Contact](#envelope-contact)
 
