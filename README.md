@@ -40,7 +40,9 @@
 
 ## :floppy_disk: Setup
 
-- Normally, the setup would be to clone this repo, change directory into it, then type `npm install` and `npm client-install`, however because of the environment variables for Mongo Atlas, JWT secret, etc, etc,. and the associated setup with those services the easiest method is click on the link to the Heroku site
+- Normally, the setup would be to clone this repo, change directory into it, then type `npm install` and `npm client-install`, however because of the environment variables for Mongo Atlas, JWT secret, etc, etc,. and the associated setup with those services the easiest method is click on the link to the Heroku site either [here](https://blooming-reef-68471.herokuapp.com/) or below:
+
+link: [https://blooming-reef-68471.herokuapp.com/](https://blooming-reef-68471.herokuapp.com/)
 
 ## :sunglasses: Features
 
