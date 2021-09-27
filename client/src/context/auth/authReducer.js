@@ -7,11 +7,19 @@ import {
   LOGIN_FAIL,
   LOGOUT,
   CLEAR_ERRORS,
+  IMAGE_UPLOAD,
 } from "../types";
 
 // eslint-disable-next-line
 export default (state, action) => {
   switch (action.type) {
+    case IMAGE_UPLOAD:
+      return {
+        ...state,
+        isAuthenticated: true,
+        loading: false,
+        user: action.payload,
+      };
     case USER_LOADED:
       return {
         ...state,

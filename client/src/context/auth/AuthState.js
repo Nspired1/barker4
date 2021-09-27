@@ -12,6 +12,8 @@ import {
   LOGIN_FAIL,
   LOGOUT,
   CLEAR_ERRORS,
+  IMAGE_UPLOAD,
+  IMAGE_ERROR,
 } from "../types";
 
 const AuthState = (props) => {
@@ -39,17 +41,38 @@ const AuthState = (props) => {
 
   // register user
   const register = async (formData) => {
+    const name = formData.get("name");
+    const username = formData.get("username");
+    const email = formData.get("email");
+    const password = formData.get("password");
+    // const profileImage = formData.get("profileImage");
+
     // const config = {
     //   headers: {
-    //     "Content-Type": "application/json",
+    //     "Content-Type": "multipart/form-data",
     //   },
     // };
+    const config = {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    };
+
     try {
       // const res = await axios.post("api/users", formData, config);
+
       const res = await axios({
-        method: "POST",
         url: "api/users",
-        data: formData,
+        method: "post",
+        data: {
+          name,
+          username,
+          email,
+          password,
+          // profileImage,
+        },
+        // formData,
+        config,
       });
 
       dispatch({
@@ -60,6 +83,28 @@ const AuthState = (props) => {
     } catch (err) {
       dispatch({
         type: REGISTER_FAIL,
+        payload: err.response.data.msg,
+      });
+    }
+  };
+
+  // upload user profileImage;
+  const uploadImage = async (formData) => {
+    const config = {
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+    };
+
+    try {
+      const res = await axios.post("api/auth", formData, config);
+      dispatch({
+        type: IMAGE_UPLOAD,
+        payload: res.data,
+      });
+    } catch (err) {
+      dispatch({
+        type: IMAGE_ERROR,
         payload: err.response.data.msg,
       });
     }
@@ -106,6 +151,7 @@ const AuthState = (props) => {
         login,
         logout,
         clearErrors,
+        uploadImage,
       }}
     >
       {props.children}
