@@ -7,13 +7,14 @@ const bcrypt = require("bcryptjs");
 
 const multer = require("multer");
 const { storage } = require("../cloudinary");
-const upload = multer({ dest: storage });
+const upload = multer({ storage });
 
 // @route   POST api/users
 // @desc    register a user
 // @access  public
 router.post(
   "/",
+  upload.single("file"),
   [
     check("name", "Name is required").not().isEmpty(),
     check("email", "Please include a valid email").isEmail(),
@@ -22,14 +23,24 @@ router.post(
       "Please enter a password with 6 or more characters"
     ).isLength({ min: 6 }),
   ],
-  upload.single("profileImage"),
+
   async (req, res) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
       return res.status(400).json({ errors: errors.array() });
     }
+    console.log("This the REQ");
+    console.log(req);
     console.log("This is req.body in USERS ROUTES");
     console.log(req.body);
+    console.log("This is req.FILE in USERS ROUTES");
+    console.log(req.file);
+    console.log("This is req.body.file in users.js");
+    console.log(req.body.file);
+    console.log(req.body.profileImage);
+    // name = formData.get("name");
+    console.log("THIS IS FORMDATA GET: ");
+    console.log(name);
 
     const { name, email, username, password } = req.body;
     try {
@@ -43,11 +54,10 @@ router.post(
         username,
         email,
         password,
+        profileImage,
       });
       user.profileImage.url = req.file.path;
-      user.profileImage.url = req.file.filename;
-      console.log("This is the Users POST route for register");
-      console.log(user.profileImage);
+      user.profileImage.filename = req.file.filename;
 
       const salt = await bcrypt.genSalt(10);
       user.password = await bcrypt.hash(password, salt);
@@ -71,7 +81,6 @@ router.post(
         }
       );
     } catch (err) {
-      console.log("This is the register route");
       console.error(err.message);
       res.status(500).send(err.message);
     }
